@@ -15,6 +15,17 @@ the COMP1531 Project Backend.
 2. Write an integration test suite to validate your work
 3. Implement the endpoints
 
+### NPM Scripts
+
+* `npm start`: start the server
+* `npm run start-dev`: run the server in dev mode (auto-restart on file
+  changes)
+* `npm run start-coverage`: start the server and measure code coverage
+* `npm t`: run the test suite
+* `npm run lint`: run ESLint
+* `npm run lint-fix`: run ESLint, applying fixes
+* `npm run tsc`: run TypeScript checks
+
 ## Where to from here?
 
 Here are some additional things you can do to extend your learning from
