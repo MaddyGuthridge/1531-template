@@ -3,6 +3,10 @@
  *
  * Helper functions to allow our tests to query our server.
  */
+// NOTE: sync-request-curl isn't ideal when developing real-world applications, since synchronous
+// code often significantly limits performance in JavaScript.
+// Consider using JavaScript's built-in asynchronous Fetch API for doing requests.
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 import request, { Response } from 'sync-request-curl';
 import { ip, port } from '../config.json';
 import { AccessError, AuthError, DataError } from '../errors';

@@ -35,6 +35,10 @@ COMP1531:
   you could refer to [W3Schools' tutorials](https://www.w3schools.com/) or take
   [COMP6080](http://www.handbook.unsw.edu.au/undergraduate/courses/current/COMP6080.html).
 
+* Learn [asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
+  online or by taking COMP6080, so that you can get the best performance and
+  improved readability in your JavaScript code.
+
 * Use a proper database such as [SQLite](https://www.sqlite.org/index.html).
 
 * Implement improved data validation by using a library such as
