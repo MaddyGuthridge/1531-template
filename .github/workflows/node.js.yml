@@ -29,7 +29,7 @@ jobs:
     # Start the server, runs tests, then kill the background job (hopefully)
     # At the very least, it'll die once the workflow ends
     - name: Run test suite
-      run: npm run dev & (sleep 3 && npm test && (jobs -p | xargs -I{} kill -- -{}))
+      run: npm start & (sleep 3 && npm test && (jobs -p | xargs -I{} kill -- -{}))
 
   lint:
     runs-on: ubuntu-latest
