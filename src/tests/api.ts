@@ -5,20 +5,34 @@
  */
 import request, { Response } from 'sync-request-curl';
 import { ip, port } from '../config.json';
+import { AccessError, AuthError, DataError } from '../errors';
 
 const BASE = `http://${ip}:${port}`;
 
 /**
  * Handle the response to a sync-request-curl request.
  *
- * Returns the status code for status >= 400, and the JSON.parse'd body
- * otherwise.
+ * Throws the relevant Error type for recognised status codes.
  */
-function handleResponse(res: Response): number | object {
+function handleResponse(res: Response): object {
   if (res.statusCode >= 400) {
-    return res.statusCode;
+    // Some kind of error occurred
+
+    // If it's an expected error type
+    if ([400, 401, 403].includes(res.statusCode)) {
+      const message = JSON.parse(res.body.toString()).error;
+      // Convert to required error object
+      switch (res.statusCode) {
+        case 400: throw new DataError(message);
+        case 401: throw new AuthError(message);
+        case 403: throw new AccessError(message);
+      }
+    }
+    // Otherwise, it's an unknown error type, so we should throw a generic error.
+    throw new Error(`Unknown status code: ${res.statusCode}\n${res.body.toString()}`);
   }
 
+  // Success status code, parse JSON data.
   return JSON.parse(res.body.toString());
 }
 
@@ -26,7 +40,7 @@ function handleResponse(res: Response): number | object {
 export function debugClear() {
   return handleResponse(
     request('DELETE', `${BASE}/debug/clear`)
-  ) as number | Record<string, never>;
+  ) as Record<string, never>;
 }
 
 /**
@@ -36,5 +50,12 @@ export function debugClear() {
 export function debugEcho(value: string) {
   return handleResponse(
     request('GET', `${BASE}/debug/echo`, { qs: { value } })
-  ) as number | { value: string };
+  ) as { value: string };
+}
+
+/** Produce an error with the given status code */
+export function debugError(code: number) {
+  return handleResponse(
+    request('GET', `${BASE}/debug/error`, { qs: { code } })
+  ) as { value: string };
 }

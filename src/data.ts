@@ -6,10 +6,22 @@
 
 // TODO: Add some proper type definitions to represent your app's data
 
+/** Data for a user */
+export type User = {
+  /** The email address of the user */
+  email: string
+  /**
+   * The password of the user.
+   *
+   * TODO: You should consider hashing and salting this for security reasons.
+   */
+  password: string
+}
+
 /** The overall data for the app */
-type Data = {
+export type Data = {
   /** Array of users */
-  users: never[]
+  users: User[]
 };
 
 /** Returns the default data object */
