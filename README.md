@@ -29,15 +29,17 @@ the COMP1531 Project Backend.
 ## Differences to 1531
 
 * In COMP1531, dependency versions are pinned to known-good versions to help 
-  avoid malware. However, this is not sustainable for real-world projects (your
-  projects need to get their dependencies updated to ensure they remain secure
-  and bug-free). I've set up Dependabot, which should help you keep your 
-  projects up-to-date. Each month, it'll open merge requests to update 
-  dependencies.
+  avoid malware. However, this is not sustainable for real-world projects, as
+  you'll need to ensure your code remains secure.
+* As such, I've set up Dependabot, which will automatically open merge requests 
+  with dependency updates.
 * The `config.json` file is configured slightly differently to prevent code 
   duplication between the server and tests.
 * Errors are thrown in the test suite in response to particular status codes. As
-  such, you will need to use `expect(() => fn()).toThrow(SomeErrorType)`.
+  such, you will need to use `expect(() => fn()).toThrow(SomeErrorType)` to 
+  expect an error. Some simple error types are provided.
+* The default branch is named `main` rather than `master` (this is the 
+  more-modern default).
 
 ## Where to from here?
 
