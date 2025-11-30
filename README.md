@@ -33,11 +33,8 @@ the COMP1531 Project Backend.
   you'll need to ensure your code remains secure.
 * As such, I've set up Dependabot, which will automatically open merge requests 
   with dependency updates.
-* The `config.json` file is configured slightly differently to prevent code 
-  duplication between the server and tests.
-* Errors are thrown in the test suite in response to particular status codes. As
-  such, you will need to use `expect(() => fn()).toThrow(SomeErrorType)` to 
-  expect an error. Some simple error types are provided.
+* The `config.json` file is now a TypeScript file with slightly different values
+  to improve reliability.
 * The default branch is named `main` rather than `master` (this is the 
   more-modern default).
 

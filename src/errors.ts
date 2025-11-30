@@ -8,26 +8,39 @@
 import { Response } from 'express';
 
 /**
- * An error with data validity.
+ * A dedicated error class, which can be used to discern expected errors caused by our server's
+ * logic from unexpected errors caused by bugs.
  *
- * This gets converted to an error 400 by the server.
+ * ## Usage:
+ *
+ * ```ts
+ * throw new ServerError('UNAUTHORIZED', 'A token was provided, but it is invalid.');
+ * ```
  */
-export class DataError extends Error { }
+export class ServerError extends Error {
+  /** The error type, for example 'UNAUTHORIZED' */
+  error: string;
+  /** A human-friendly error message, for example 'A token was provided, but it is invalid.' */
+  message: string;
 
-/**
- * An error with authentication or tokens.
- *
- * This gets converted to an error 401 by the server.
- */
-export class AuthError extends Error { }
+  constructor(error: string, message: string) {
+    super(message);
+    this.error = error;
+    this.message = message;
+  }
+}
 
-/**
- * An error indicating a permission issue (ie the user does not have permission to perform the
- * requested action).
- *
- * This gets converted to an error 403 by the server.
- */
-export class AccessError extends Error { }
+export function errorToStatus(e: string): number {
+  switch (e) {
+    // TODO: Add other error types here
+    case 'UNAUTHORIZED':
+      return 401;
+    // If we don't recognise the error type, we should give an error to help us find the place where
+    // we need to add the mapping.
+    default:
+      throw new Error(`Missing status code definition for error type '${e}'!`);
+  }
+}
 
 /**
  * A helper function to handle errors by sending the corresponding response code.
@@ -36,14 +49,8 @@ export class AccessError extends Error { }
  * errors aren't inadvertently silenced.
  */
 export function handleError(res: Response, err: unknown) {
-  if (err instanceof DataError) {
-    return res.status(400).json({ error: err.message });
-  }
-  if (err instanceof AuthError) {
-    return res.status(401).json({ error: err.message });
-  }
-  if (err instanceof AccessError) {
-    return res.status(403).json({ error: err.message });
+  if (err instanceof ServerError) {
+    return res.status(errorToStatus(err.error)).json({ error: err.message });
   }
   // Unrecognised error -- we throw it again so that the error can be handled by Express
   throw err;

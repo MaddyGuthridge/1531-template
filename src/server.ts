@@ -7,19 +7,16 @@
  */
 import express, { json, Response } from 'express';
 import morgan from 'morgan';
-import config from './config.json';
+import config from './config';
 import cors from 'cors';
 import process from 'process';
-import { echo, clear, error } from './debug';
+import { echo, clear } from './debug';
 import { handleError } from './errors';
 
 const app = express();
 app.use(json());
 app.use(cors());
 app.use(morgan('dev'));
-
-const PORT: number = parseInt(process.env.PORT || config.port);
-const IP: string = process.env.IP || config.ip;
 
 /**
  * Adds the error handler to the given route.
@@ -37,36 +34,31 @@ function withErrorHandler<T>(res: Response, callback: () => T): T | undefined {
 
 // Debug routes
 // ==================================================
-// Note that in the real world, you should disable these when your app is running in production.
+// To disable these for production, set `debug` to false in `config.ts`.
 
-/** GET /debug/echo?value=ping */
-app.get('/debug/echo', (req, res) => {
-  withErrorHandler(res, () => {
-    res.json(echo(req.query.value as string));
+if (config.debug) {
+  /** GET /debug/echo?value=ping */
+  app.get('/debug/echo', (req, res) => {
+    withErrorHandler(res, () => {
+      res.json(echo(req.query.value as string));
+    });
   });
-});
 
-/** GET /debug/error?code=401 */
-app.get('/debug/error', (req, res) => {
-  withErrorHandler(res, () => {
-    res.json(error(parseInt(req.query.code as string)));
+  /** DELETE /debug/clear */
+  app.delete('/debug/clear', (req, res) => {
+    withErrorHandler(res, () => {
+      clear();
+      res.json({});
+    });
   });
-});
-
-/** DELETE /debug/clear */
-app.delete('/debug/clear', (req, res) => {
-  withErrorHandler(res, () => {
-    clear();
-    res.json({});
-  });
-});
+}
 
 // TODO: Add your routes here
 // ==================================================
 
 // Start server
-const server = app.listen(PORT, IP, () => {
-  console.log(`🐝 Your server is up and running! http://${IP}:${PORT}/`);
+const server = app.listen(config.port, config.ip, () => {
+  console.log(`🐝 Your server is up and running! http://${config.ip}:${config.port}/`);
 });
 
 // For coverage, handle Ctrl+C gracefully
