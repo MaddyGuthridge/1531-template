@@ -35,10 +35,5 @@
     "typescript-eslint": "^8.41.0",
     "yaml": "^2.4.5",
     "sync-request-curl": "^3.0.0"
-  },
-  "nyc": {
-    "exclude": [
-      "echo.*"
-    ]
   }
 }

@@ -26,6 +26,19 @@ the COMP1531 Project Backend.
 * `npm run lint-fix`: run ESLint, applying fixes
 * `npm run tsc`: run TypeScript checks
 
+## Differences to 1531
+
+* In COMP1531, dependency versions are pinned to known-good versions to help 
+  avoid malware. However, this is not sustainable for real-world projects (your
+  projects need to get their dependencies updated to ensure they remain secure
+  and bug-free). I've set up Dependabot, which should help you keep your 
+  projects up-to-date. Each month, it'll open merge requests to update 
+  dependencies.
+* The `config.json` file is configured slightly differently to prevent code 
+  duplication between the server and tests.
+* Errors are thrown in the test suite in response to particular status codes. As
+  such, you will need to use `expect(() => fn()).toThrow(SomeErrorType)`.
+
 ## Where to from here?
 
 Here are some additional things you can do to extend your learning from
@@ -34,15 +47,18 @@ COMP1531:
 * Create a front-end by learning HTML, CSS and front-end JavaScript. Perhaps
   you could refer to [W3Schools' tutorials](https://www.w3schools.com/) or take
   [COMP6080](http://www.handbook.unsw.edu.au/undergraduate/courses/current/COMP6080.html).
+  Maddy recommends [Svelte](https://svelte.dev/) for its ease-of-use.
 
 * Learn [asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing)
   online or by taking COMP6080, so that you can get the best performance and
   improved readability in your JavaScript code.
 
-* Use a proper database such as [SQLite](https://www.sqlite.org/index.html).
+* Use a proper database such as [SQLite](https://www.sqlite.org/index.html). 
+  Data-store files are simple, but do not scale, especially when reliability is
+  required.
 
 * Implement improved data validation by using a library such as
-  [Superstruct](https://docs.superstructjs.org/).
+  [Zod](https://zod.dev/).
 
 ## Thank you
 
