@@ -1,0 +1,74 @@
+openapi: 3.1.0
+servers: []
+info:
+  description: |
+    🐝 Congrats on finishing COMP1531! Here's a template that you can use for
+    your own projects! Enjoy!
+  version: 25.3.0
+  title: COMP1531 Template
+
+tags:
+  - name: "Debug"
+    description: Endpoints useful for debugging
+
+paths:
+  /debug/clear:
+    delete:
+      summary: Reset to the starting state of the server.
+      description: |
+        All data should be deleted.
+      tags:
+        - "Debug"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema: { type: object }
+  /debug/echo:
+    get:
+      summary: Echo a message to the server console
+      description: |
+        Unlike the 1531 echo command, this one also logs the value to the server
+        console. This is excellent for debugging a failing test, as you can log
+        useful data from test cases directly within your server output.
+      tags:
+        - "Debug"
+      parameters:
+        - name: value
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The value to echo
+          example: "Hello, world!"
+      operationId: ""
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    description: The same input value
+                    example: "Hello, world!"
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: An error code
+          example: "UNAUTHORIZED"
+        message:
+          type: string
+          description: A detailed human-friendly error message
+          example: "A token was provided, but it was invalid"
+
+  requestBodies: {}
+security: []
