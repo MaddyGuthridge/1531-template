@@ -5,17 +5,14 @@
  *
  * This file is responsible for defining the endpoints of your server.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import process from 'process';
 import express, { json, Response } from 'express';
 import morgan from 'morgan';
-import config from './config';
-import YAML from 'yaml';
-import sui from 'swagger-ui-express';
 import cors from 'cors';
-import process from 'process';
+import config from './config';
 import { echo, clear } from './debug';
 import { handleError } from './errors';
+import docs from './docsMiddleware';
 
 const app = express();
 app.use(json());
@@ -23,14 +20,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 if (config.showDocs) {
-  const file = fs.readFileSync(path.join(process.cwd(), 'openapi.yaml'), 'utf8');
-  app.get('/', (req, res) => res.redirect('/docs'));
-  app.use(
-    '/docs',
-    sui.serve,
-    sui.setup(YAML.parse(file),
-      { swaggerOptions: { docExpansion: 'list' } }
-    ));
+  app.use(docs());
 } else {
   app.get('/', (req, res) => {
     res.send(`
