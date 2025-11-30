@@ -9,19 +9,19 @@
 /** Data for a user */
 export type User = {
   /** The email address of the user */
-  email: string
+  email: string;
   /**
    * The password of the user.
    *
    * TODO: You should consider hashing and salting this for security reasons.
    */
-  password: string
-}
+  password: string;
+};
 
 /** The overall data for the app */
 export type Data = {
   /** Array of users */
-  users: User[]
+  users: User[];
 };
 
 /** Returns the default data object */
