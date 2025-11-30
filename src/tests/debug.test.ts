@@ -33,5 +33,6 @@ describe('error', () => {
   test('Giving an unknown status code produces an error 500', () => {
     // Produces a generic error
     expect(() => debugError(999)).toThrow(Error);
+    debugEcho('That error was intentionally triggered by testing. Please ignore');
   });
 });
