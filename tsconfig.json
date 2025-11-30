@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "noEmit": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "target": "es2015",
-    "module": "commonjs"
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true
   },
-  "exclude": [
-    "**/**_broken.ts"
-  ],
+  "exclude": ["**/**_broken.ts", "node_modules"]
 }
-
