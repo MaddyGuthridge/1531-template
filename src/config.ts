@@ -6,5 +6,5 @@ export default {
   /** Whether to enable the server's debug routes, such as echo and clear. */
   debug: true,
   /** Show swagger.yaml documentation when visiting the server root */
-  showDocs: false
+  showDocs: true
 };
