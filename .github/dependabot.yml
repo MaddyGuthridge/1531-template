@@ -4,6 +4,27 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      eslint:
+        applies-to: version-updates
+        patterns:
+          - "eslint"
+          - "eslint-plugin-*"
+          - "@types/eslint"
+          - "typescript-eslint"
+          - "@stylistic/eslint-plugin"
+          - "@tanstack/eslint-plugin-query"
+          - "globals"
+      typescript:
+        applies-to: version-updates
+        patterns:
+          - "typescript"
+          - "tslib"
+    ignore:
+      # No major @types/node updates, since they should follow the project's
+      # target node version.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
