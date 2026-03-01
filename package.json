@@ -9,7 +9,7 @@
     "start-coverage": "nyc --reporter=text --reporter=lcov tsx src/server.ts"
   },
   "dependencies": {
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "morgan": "^1.10.0",
     "tsx": "^4.21.0",
