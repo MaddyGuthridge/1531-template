@@ -1,12 +1,12 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "tsc": "tsc --project tsconfig.json",
     "lint": "eslint 'src/**/*.{ts,js}'",
     "lint-fix": "eslint --fix 'src/**/*.{ts,js}'",
     "start": "tsx src/server.ts",
-    "dev": "tsx watch --clear-screen=false --include 'src/config.json' src/server.ts",
-    "start-coverage": "nyc --reporter=text --reporter=lcov tsx src/server.ts"
+    "dev": "tsx watch --clear-screen=false src/server.ts",
+    "start-coverage": "c8 --reporter=text --reporter=lcov tsx src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.6",

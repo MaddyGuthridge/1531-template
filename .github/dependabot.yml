@@ -23,6 +23,12 @@ updates:
         patterns:
           - "typescript"
           - "tslib"
+          - "tsx"
+      jest:
+        applies-to: version-updates
+        patterns:
+          - "jest"
+          - "ts-jest"
     ignore:
       # No major @types/node updates, since they should follow the project's
       # target node version.
