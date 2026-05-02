@@ -25,16 +25,16 @@
     "@types/node": "^20.19.37",
     "@types/swagger-ui-express": "^4.1.6",
     "@types/validator": "^13.12.0",
-    "eslint": "^10.1.0",
-    "eslint-plugin-jest": "^29.15.1",
-    "globals": "^17.4.0",
+    "eslint": "^10.2.1",
+    "eslint-plugin-jest": "^29.15.2",
+    "globals": "^17.5.0",
     "jest": "^30.3.0",
     "c8": "^11.0.0",
     "swagger-ui-express": "^5.0.1",
     "sync-request-curl": "^4.0.0",
     "ts-jest": "^29.4.6",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.58.0",
+    "typescript-eslint": "^8.59.1",
     "yaml": "^2.8.3"
   }
 }
