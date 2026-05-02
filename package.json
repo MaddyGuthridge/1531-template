@@ -22,7 +22,7 @@
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^20.19.37",
+    "@types/node": "^20.19.39",
     "@types/swagger-ui-express": "^4.1.6",
     "@types/validator": "^13.12.0",
     "eslint": "^10.2.1",
