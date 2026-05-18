@@ -6,11 +6,12 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "target": "es2024",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "types": ["@types/jest"],
   },
-  "exclude": ["**/**_broken.ts", "node_modules"]
+  "exclude": ["**/**_broken.ts", "node_modules"],
 }
