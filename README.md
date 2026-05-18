@@ -5,26 +5,26 @@ the COMP1531 Project Backend.
 
 ## Getting started
 
-1. Make a GitHub account
-2. [Create a repository from this template](https://github.com/new?template_name=1531-template&template_owner=MaddyGuthridge)
+1. Make a GitHub account. It's an excellent place to keep your non-UNSW 
+   projects!
+2. [Create a repository from this template](https://github.com/new?template_name=1531-template&template_owner=MaddyGuthridge).
 3. `git clone` your new repo and run `npm install` to set up the dependencies.
 
 ## How to create your app
 
-1. Start designing your server interface
-2. Write an integration test suite to validate your work
-3. Implement the endpoints
+1. Start designing your server interface.
+2. Write an integration test suite to validate your work.
+3. Implement the endpoints.
 
 ### NPM Scripts
 
-* `npm start`: start the server
-* `npm run start-dev`: run the server in dev mode (auto-restart on file
-  changes)
-* `npm run start-coverage`: start the server and measure code coverage
-* `npm t`: run the test suite
-* `npm run lint`: run ESLint
-* `npm run lint-fix`: run ESLint, applying fixes
-* `npm run tsc`: run TypeScript checks
+* `npm start`: start the server.
+* `npm run dev`: run the server in dev mode (auto-restart on file changes).
+* `npm run start-coverage`: start the server and measure code coverage.
+* `npm t`, `npm run test`: run the test suite.
+* `npm run lint`: run ESLint.
+* `npm run lint-fix`: run ESLint, applying fixes.
+* `npm run tsc`: run TypeScript checks.
 
 ## Differences to 1531
 
@@ -33,6 +33,8 @@ the COMP1531 Project Backend.
   you'll need to ensure your code remains secure.
 * As such, I've set up Dependabot, which will automatically open merge requests 
   with dependency updates.
+* When you create your project, you should "watch" it so that you get 
+  notifications whenever Dependabot creates a pull request.
 * The `config.json` file is now a TypeScript file with slightly different values
   to improve reliability.
 * The default branch is named `main` rather than `master` (this is the 
