@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "monthly"
     cooldown:
-      default-days: 3
+      default-days: 7
     groups:
       eslint:
         applies-to: version-updates
@@ -39,4 +39,4 @@ updates:
     schedule:
       interval: "monthly"
     cooldown:
-      default-days: 3
+      default-days: 7
