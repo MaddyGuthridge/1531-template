@@ -3,7 +3,7 @@
  *
  * Helper functions for testing and debugging your code.
  */
-import { defaultData, setData } from './data';
+import { defaultData, setData } from './data.ts';
 
 /** Clear the data store */
 export function clear() {

@@ -3,8 +3,8 @@
  *
  * Test cases for the debugging routes.
  */
-
-import { debugClear, debugEcho } from './api';
+import { describe, test, expect } from 'vitest';
+import { debugClear, debugEcho } from './api.ts';
 
 describe('echo', () => {
   test('It returns whatever string it was given.', () => {

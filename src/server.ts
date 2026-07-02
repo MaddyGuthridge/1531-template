@@ -9,10 +9,10 @@ import process from 'process';
 import express, { json, Response } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import config from './config';
-import { echo, clear } from './debug';
-import { handleError } from './errors';
-import docs from './docsMiddleware';
+import config from './config.ts';
+import { echo, clear } from './debug.ts';
+import { handleError } from './errors.ts';
+import docs from './docsMiddleware.ts';
 
 const app = express();
 app.use(json());

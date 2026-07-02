@@ -9,8 +9,9 @@
 // Consider using JavaScript's built-in asynchronous Fetch API for doing requests.
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 import request, { Response } from 'sync-request-curl';
-import config from '../config';
-import { errorToStatus } from '../errors';
+import config from '../config.ts';
+import { errorToStatus } from '../errors.ts';
+import { expect } from 'vitest';
 
 const BASE = `http://${config.ip}:${config.port}`;
 

@@ -1,9 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "start": "tsx server.ts",
-    "dev": "tsx --watch --watch-preserve-output server.ts",
-    "start-coverage": "c8 --reporter=text --reporter=html tsx server.ts",
+    "start": "tsx src/server.ts",
+    "dev": "tsx --watch --watch-preserve-output src/server.ts",
+    "start-coverage": "c8 --reporter=text --reporter=html tsx src/server.ts",
     "test": "vitest run",
     "tsc": "tsc --project tsconfig.json",
     "lint": "eslint",
@@ -13,6 +13,7 @@
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "morgan": "^1.11.0",
+    "swagger-ui-express": "^5.0.1",
     "tsx": "^4.22.3",
     "validator": "^13.15.35"
   },
@@ -23,6 +24,7 @@
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^24.13.2",
+    "@types/swagger-ui-express": "^4.1.8",
     "@vitest/eslint-plugin": "^1.6.18",
     "c8": "^11.0.0",
     "eslint": "^10.4.0",

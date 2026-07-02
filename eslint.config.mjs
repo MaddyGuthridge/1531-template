@@ -1,7 +1,7 @@
 import js from '@eslint/js'
 import ts from 'typescript-eslint'
 import stylistic from '@stylistic/eslint-plugin'
-import pluginJest from 'eslint-plugin-jest'
+import pluginVitest from '@vitest/eslint-plugin'
 import globals from 'globals'
 
 export default [
@@ -11,12 +11,12 @@ export default [
   {
     plugins: {
       '@stylistic': stylistic,
-      'jest': pluginJest,
+      'vitest': pluginVitest,
     },
     languageOptions: {
       parser: ts.parser,
       globals: {
-        ...pluginJest.environments.globals.globals,
+        ...pluginVitest.environments.env.globals,
         ...globals.node,
       },
     },
