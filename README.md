@@ -5,7 +5,7 @@ the COMP1531 Project Backend.
 
 ## Getting started
 
-1. Make a GitHub account. It's an excellent place to keep your non-UNSW 
+1. Make a GitHub account. It's an excellent place to keep your non-UNSW
    projects!
 2. [Create a repository from this template](https://github.com/new?template_name=1531-template&template_owner=MaddyGuthridge).
 3. `git clone` your new repo and run `npm install` to set up the dependencies.
@@ -28,16 +28,15 @@ the COMP1531 Project Backend.
 
 ## Differences to 1531
 
-* In COMP1531, dependency versions are pinned to known-good versions to help 
-  avoid malware. However, this is not sustainable for real-world projects, as
-  you'll need to ensure your code remains secure.
-* As such, I've set up Dependabot, which will automatically open merge requests 
+* In the real-world, it is important to keep your dependencies updated to ensure
+  your software isn't vulnerable to security issues.
+* As such, I've set up Dependabot, which will automatically open merge requests
   with dependency updates.
-* When you create your project, you should "watch" it so that you get 
+* When you create your project, you should "watch" it so that you get
   notifications whenever Dependabot creates a pull request.
 * The `config.json` file is now a TypeScript file with slightly different values
   to improve reliability.
-* The default branch is named `main` rather than `master` (this is the 
+* The default branch is named `main` rather than `master` (this is the
   more-modern default).
 
 ## Where to from here?
@@ -54,7 +53,7 @@ COMP1531:
   online or by taking COMP6080, so that you can get the best performance and
   improved readability in your JavaScript code.
 
-* Use a proper database such as [SQLite](https://www.sqlite.org/index.html). 
+* Use a proper database such as [SQLite](https://www.sqlite.org/index.html).
   Data-store files are simple, but do not scale, especially when reliability is
   required.
 
@@ -75,19 +74,19 @@ should not implement anything more than basic features. For example, implementin
 authentication and user management is beyond the scope of the template.
 
 By contributing to the project, you are releasing your code under the license
-of this template ("The Unlicense"), thereby giving permission for others to 
+of this template ("The Unlicense"), thereby giving permission for others to
 use the code from your contributions as a part of their work. Of course, I am
 happy to credit you as a contributor on the template's source repository!
 
 ### Licensing
 
-This template is licensed using [The Unlicense](https://unlicense.org/). 
-When you create a new project using this template, you should 
+This template is licensed using [The Unlicense](https://unlicense.org/).
+When you create a new project using this template, you should
 [choose a license](https://choosealicense.com/) so that your contributors
 and users know what rights they have when it comes to your code.
 
 Please note that the Unlicense is only being applied to the template, and
-not to projects created using this template. Please make sure to remove 
+not to projects created using this template. Please make sure to remove
 this license when you create a project using this template.
 
 #### The Unlicense
