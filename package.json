@@ -30,7 +30,7 @@
     "eslint": "^10.4.0",
     "globals": "^17.6.0",
     "sync-request-curl": "^4.0.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.0",
     "vitest": "^4.1.7"
   },
