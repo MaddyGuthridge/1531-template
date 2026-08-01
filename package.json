@@ -26,7 +26,7 @@
     "@types/node": "^24.13.2",
     "@types/swagger-ui-express": "^4.1.8",
     "@vitest/eslint-plugin": "^1.6.18",
-    "c8": "^11.0.0",
+    "c8": "^12.0.0",
     "eslint": "^10.4.0",
     "globals": "^17.6.0",
     "sync-request-curl": "^4.0.0",
